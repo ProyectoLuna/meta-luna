@@ -1,8 +1,8 @@
 # meta-luna
-# Target filesystems path
+## Target filesystems path
 gvim meta/conf/bitbake.conf
 
-# Añadir paquetes a la instalación
+## Añadir paquetes a la instalación
 gvim meta-luna/conf/layer.conf
 
 ```
@@ -20,12 +20,14 @@ IMAGE_INSTALL_append += " \
 "
 ```
 
-# Añadir librerias al sdk
+## Añadir librerias al sdk
+```
 bitbake core-image-minimal -c populate_sdk
 cd tmp/deploy/sdk
 ./poky-glibc-x86_64-core-image-minimal-cortexa7hf-neon-vfpv4-toolchain-2.3.sh
+```
 
-# Flashear SD
+# #Flashear SD
 ```
 sudo umount /dev/mmcblk1p1
 sudo umount /dev/mmcblk1p2
@@ -37,12 +39,13 @@ cd ./meta-rpi/scripts
 ./copy_rootfs.sh mmcblk1 core-image-minimal minimal
 ```
 
-# Environment
+## Environment
 ```
  $ . /opt/poky/2.3/environment-setup-cortexa7hf-neon-vfpv4-poky-linux-gnueabi
 ```
 
-# Lugares varios
+## Lugares varios
+```
 work/raspberrypi2-poky-linux-gnueabi/qt5-image/1.0-r0/rootfs/usr/include/RF24Mesh/RF24Mesh.h
 work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/rf24mesh/1.0-r0/package/usr/include/RF24Mesh/RF24Mesh.h
 work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/rf24mesh/1.0-r0/sysroot-destdir/usr/include/RF24Mesh/RF24Mesh.h
@@ -50,8 +53,10 @@ work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/rf24mesh/1.0-r0/packages-split/rf2
 work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/rf24mesh/1.0-r0/image/usr/include/RF24Mesh/RF24Mesh.h
 work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/rf24mesh/1.0-r0/git/.pc/0001-rf24mesh-change-data-rate.patch/RF24Mesh.h
 work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/rf24mesh/1.0-r0/git/RF24Mesh.h
+```
 
-# Para compilar el cute-logger hay que eliminar la linea:
+## Compilar el cute-logger
+Hay que eliminar la linea:
 ```
 do_configure_prepend() {
 ->    #rm -rf ${S}/include   <-
