@@ -25,6 +25,7 @@ IMAGE_INSTALL_append += " \
 bitbake core-image-minimal -c populate_sdk
 cd tmp/deploy/sdk
 ./poky-glibc-x86_64-core-image-minimal-cortexa7hf-neon-vfpv4-toolchain-2.3.sh
+path: /opt/poky/2.3/qt5sdk
 ```
 
 # #Flashear SD
@@ -56,7 +57,7 @@ work/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/rf24mesh/1.0-r0/git/RF24Mesh.h
 ```
 
 ## Compilar el cute-logger
-Hay que eliminar la linea:
+    Hay que eliminar la linea:
 ```
 do_configure_prepend() {
 ->    #rm -rf ${S}/include   <-
